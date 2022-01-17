@@ -6,7 +6,8 @@ function [C, U, R] = cur_deim(A, k)
 % C = A(:,icol);  R = A(irow,:)
 %
 % Reference: Embree and Sorensen, 2016
-%
+% 
+% (C) Perfect Gidisu, Michiel Hochstenbach 2020
 
 
 if nargin < 2 || isempty(k), k = 2; end
