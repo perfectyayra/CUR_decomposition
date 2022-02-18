@@ -1,7 +1,7 @@
 function [C, U, R] = cur_deim(A, k)
 
 %CUR_DEIM  DEIM incurred CUR decomposition
-% function [icol, irow, M] = cur_deim(A, m)
+% function [icol, irow, M] = cur_deim(A, k)
 %
 % C = A(:,icol);  R = A(irow,:)
 %
@@ -12,7 +12,7 @@ function [C, U, R] = cur_deim(A, k)
 
 if nargin < 2 || isempty(k), k = 2; end
 
-[U, ~, V] = svds(full(A),k);
+[U, ~, V] = svds(A,k);
 
 for i = 1:k
   [~, irow(i)] = max(abs(U(:,i)));
