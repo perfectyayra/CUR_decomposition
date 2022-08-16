@@ -1,16 +1,16 @@
-function [C, U, R] = cur_deim(A, k)
+function [icol, irow, M]  = cur_deim(A, k)
 
 %CUR_DEIM  DEIM incurred CUR decomposition
 % function [icol, irow, M] = cur_deim(A, k)
-%
+% icol contains the selected column indices 
+% irow contains the selected row indices 
+% M is the middle matrix of the CUR approximation 
+
 % C = A(:,icol);  R = A(irow,:)
 %
 % Reference: Embree and Sorensen, 2016
 % 
 % (C) Perfect Gidisu, Michiel Hochstenbach 2020
-
-
-if nargin < 2 || isempty(k), k = 2; end
 
 [U, ~, V] = svds(A,k);
 
@@ -26,5 +26,5 @@ for j = 1:k
 end
 C=A(:,icol);
 R=A(irow,:);
-U = C \ (A / R);
+M = C \ (A / R);
 
