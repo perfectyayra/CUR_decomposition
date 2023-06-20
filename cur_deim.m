@@ -26,5 +26,5 @@ for j = 1:k
 end
 C=A(:,icol);
 R=A(irow,:);
-M = pinv(C)*A*pinv(R);
+M = C\(A/R);
 
